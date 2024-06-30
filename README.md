@@ -1,10 +1,10 @@
 # SaveUp
 
-SaveUp ist eine mobile Applikation, die Benutzern ermöglicht, kleine, alltägliche Ausgaben zu verfolgen und zu sparen. Nutzer können auf Ausgaben wie Kaffee, Süßigkeiten oder andere kleine Einkäufe verzichten und diese Einsparungen in der App festhalten.
+SaveUp ist eine mobile Applikation, die Benutzern ermöglicht, kleine, alltägliche Ausgaben zu verfolgen und zu sparen. Nutzer können auf Ausgaben wie Kaffee, Süssigkeiten oder andere kleine Einkäufe verzichten und diese Einsparungen in der App festhalten.
 
 ## Überblick
 
-Die SaveUp-App bietet eine benutzerfreundliche Oberfläche, mit der Benutzer ihre gesparten Beträge einfach erfassen und verwalten können. Ziel der Anwendung ist es, den Benutzern einen Überblick über ihre Einsparungen zu geben und sie zu motivieren, weiterhin bewusst auf kleine Ausgaben zu verzichten, um größere finanzielle Ziele zu erreichen.
+Die SaveUp-App bietet eine benutzerfreundliche Oberfläche, mit der Benutzer ihre gesparten Beträge einfach erfassen und verwalten können. Ziel der Anwendung ist es, den Benutzern einen Überblick über ihre Einsparungen zu geben und sie zu motivieren, weiterhin bewusst auf kleine Ausgaben zu verzichten, um grössere finanzielle Ziele zu erreichen.
 
 ## Funktionen
 
