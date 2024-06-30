@@ -12,11 +12,13 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 		BindingContext = _viewModel;
 
+        // When Item gets deleted
         MessagingCenter.Subscribe<PopupPage, Item>(this, "DeleteItem", (sender, item) =>
         {
             _viewModel.Items.Remove(item);
         });
 
+        // When new Item gets entered
         MessagingCenter.Subscribe<EntryViewModel, Item>(this, "AddNewItem", (sender, arg) =>
         {
             viewModel.Items.Add(arg);
@@ -24,11 +26,13 @@ public partial class MainPage : ContentPage
         });
     }
 
+    // When click on Plus Button
     private async void OnAddButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Eintragen");
     }
 
+    // Click on an Item
     private async void OnItemTapped(object sender, EventArgs e)
     {
         var grid = sender as Grid;

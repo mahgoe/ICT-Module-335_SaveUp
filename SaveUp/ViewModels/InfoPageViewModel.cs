@@ -10,6 +10,7 @@ namespace SaveUp.ViewModels
         [ObservableProperty]
         private string developerUrl = "https://github.com/mahgoe";
 
+        // Open the Link from Developer
         [RelayCommand]
         private async void OpenDeveloperUrl()
         {

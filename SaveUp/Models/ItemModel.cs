@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SaveUp.Models
 {
+    // Item Model
     public class Item
     {
         public string Name { get; set; }

@@ -42,19 +42,20 @@ namespace SaveUp.ViewModels
             SaveCommand = new Command(SaveData);
         }
 
+        // Create new Item with the Data thats filled
         private void SaveData()
         {
-            // Erstelle ein neues Item mit den aktuellen Daten
+            
             var newItem = new Item
             {
                 Name = ProductName,
                 Price = Price
             };
 
-            // Sende das neu erstellte Item an die MainPage
+            // Messaging the MainPage with the new Item
             MessagingCenter.Send(this, "AddNewItem", newItem);
 
-            // Optional: Bereinige die Felder nach dem Speichern
+            // Clears the Page Entries
             ProductName = string.Empty;
             Description = string.Empty;
             Price = 0;

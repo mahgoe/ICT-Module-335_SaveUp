@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SaveUp.Views.PopupPage"
              Title="PopupPage">
- 
+    <!-- Pops Up when you want to delete an Item -->
     <VerticalStackLayout Padding="20" Spacing="15">
         <Label x:Name="NameLabel" FontAttributes="Bold" HorizontalOptions="Center"/>
         <Label x:Name="PriceLabel" HorizontalOptions="Center"/>

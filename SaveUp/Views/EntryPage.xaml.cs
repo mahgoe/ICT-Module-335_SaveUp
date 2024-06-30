@@ -10,6 +10,7 @@ public partial class EntryPage : ContentPage
         BindingContext = new EntryViewModel();
     }
 
+    // Save Button
     private void OnSaveClicked(object sender, EventArgs e)
     {
         var viewModel = BindingContext as EntryViewModel;
@@ -19,6 +20,7 @@ public partial class EntryPage : ContentPage
         }
     }
 
+    // Reset Button
     private void OnResetClicked(object sender, EventArgs e)
     {
         productNameEntry.Text = string.Empty;

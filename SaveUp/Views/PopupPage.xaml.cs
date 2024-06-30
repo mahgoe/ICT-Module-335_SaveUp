@@ -6,6 +6,7 @@ public partial class PopupPage : ContentPage
 {
     public Item Item { get; set; }
 
+    // Show Item with this details
     public PopupPage(Item item)
     {
         InitializeComponent();
@@ -14,13 +15,14 @@ public partial class PopupPage : ContentPage
         PriceLabel.Text = $"Preis: {Item.Price} CHF";
     }
 
+    // Delete Item which is selected
     private async void OnDeleteClicked(object sender, EventArgs e)
     {
-        // Logik zum Löschen des Eintrags
         MessagingCenter.Send(this, "DeleteItem", Item);
         await Navigation.PopModalAsync();
     }
 
+    // Cancel Button
     private async void OnCancelClicked(object sender, EventArgs e)
     {
         await Navigation.PopModalAsync();

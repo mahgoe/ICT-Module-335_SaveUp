@@ -16,18 +16,21 @@ namespace SaveUp.ViewModels
 
         private DateTime currentDate;
 
+        // Date for the main Page
         public DateTime CurrentDate
         {
             get => currentDate;
             set => SetProperty(ref currentDate, value);
         }
 
+        // Constructor for ViewModel
         public MainPageViewModel()
         {
             CurrentDate = DateTime.Now;
 
             Items = new ObservableCollection<Item>
         {
+                // Dummy Entrys
             new Item { Name = "Süssigkeiten", Price = 4.00m },
             new Item { Name = "Kaffee", Price = 3.00m },
             new Item { Name = "Zigaretten", Price = 9.40m }
@@ -43,11 +46,13 @@ namespace SaveUp.ViewModels
             });
         }
 
+        // Calculate all Prices 
         public void CalculateTotal()
         {
             TotalSaved = Items.Sum(item => item.Price);
         }
 
+        // Delete all Entries
         [RelayCommand]
         private void ClearAllEntries()
         {
