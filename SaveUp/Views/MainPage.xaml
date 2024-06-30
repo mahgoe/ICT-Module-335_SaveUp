@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaveUp.Views.MainPage">
+
+    <!-- Layout Definieren -->
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <!-- Kopfzeile mit Datum und Hinzufügen-Button -->
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+            <Label Text="18.05.2024" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Margin="0,10,0,0"/>
+            
+            <Button Text="+" 
+                    FontSize="Medium" 
+                    BackgroundColor="#5A4FCF"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    CornerRadius="30"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Clicked="OnAddButtonClicked"
+                    Margin="240,10,0,0"/>
+        </HorizontalStackLayout>
+
+        <!-- Liste der Ausgaben -->
+        <Label Text="{Binding TotalSaved, StringFormat='Heute gespart: {0:F2} CHF'}" HorizontalOptions="Start"/>
+        <CollectionView ItemsSource="{Binding Items}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray" CornerRadius="5" Margin="5">
+                        <Grid Padding="10" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding Price, StringFormat='{0:F2} CHF'}" VerticalOptions="Center" HorizontalOptions="End"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemTapped"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
