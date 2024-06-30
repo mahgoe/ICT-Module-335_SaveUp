@@ -11,15 +11,25 @@ public partial class MainPage : ContentPage
 		_viewModel = viewModel;
 		InitializeComponent();
 		BindingContext = _viewModel;
-	}
+
+        MessagingCenter.Subscribe<PopupPage, Item>(this, "DeleteItem", (sender, item) =>
+        {
+            _viewModel.Items.Remove(item);
+        });
+
+        MessagingCenter.Subscribe<EntryViewModel, Item>(this, "AddNewItem", (sender, arg) =>
+        {
+            viewModel.Items.Add(arg);
+            viewModel.CalculateTotal();
+        });
+    }
 
     private async void OnAddButtonClicked(object sender, EventArgs e)
     {
-        // Annahme, dass "Eintragen" der erste Tab in deiner TabBar ist
         await Shell.Current.GoToAsync("//Eintragen");
     }
 
-    private void OnItemTapped(object sender, EventArgs e)
+    private async void OnItemTapped(object sender, EventArgs e)
     {
         var grid = sender as Grid;
         if (grid != null)
@@ -27,11 +37,8 @@ public partial class MainPage : ContentPage
             var item = grid.BindingContext as Item;
             if (item != null)
             {
-                // Hier Code, um das Popup zu öffnen
-                // Beispiel: Zeige Details im Popup oder navigiere zu einer Detailseite
-                DisplayAlert("Produktinformation", $"Name: {item.Name}\nPreis: {item.Price:F2} CHF", "OK");
+                await Navigation.PushModalAsync(new PopupPage(item));
             }
         }
     }
-
 }

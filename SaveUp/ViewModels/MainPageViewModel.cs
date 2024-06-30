@@ -14,8 +14,18 @@ namespace SaveUp.ViewModels
         [ObservableProperty]
         decimal totalSaved;
 
+        private DateTime currentDate;
+
+        public DateTime CurrentDate
+        {
+            get => currentDate;
+            set => SetProperty(ref currentDate, value);
+        }
+
         public MainPageViewModel()
         {
+            CurrentDate = DateTime.Now;
+
             Items = new ObservableCollection<Item>
         {
             new Item { Name = "Süssigkeiten", Price = 4.00m },
@@ -24,11 +34,24 @@ namespace SaveUp.ViewModels
         };
             Items.CollectionChanged += (s, e) => CalculateTotal();
             CalculateTotal();
+            MessagingCenter.Subscribe<EntryViewModel, Item>(this, "AddNewItem", (sender, arg) =>
+            {
+                if (arg != null && !string.IsNullOrWhiteSpace(arg.Name))
+                {
+                    Items.Add(arg);
+                }
+            });
         }
 
-        private void CalculateTotal()
+        public void CalculateTotal()
         {
             TotalSaved = Items.Sum(item => item.Price);
+        }
+
+        [RelayCommand]
+        private void ClearItems()
+        {
+            Items.Clear();
         }
     }
 }

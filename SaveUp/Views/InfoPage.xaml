@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SaveUp.Views.InfoPage"
-             Title="InfoPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="SaveUp.Views.InfoPage">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+            <Label Text="Version: 1.0"
+                   VerticalOptions="Start" HorizontalOptions="Center"/>
+            <Label Text="Diese App ist da um Geld zu sparen indem man die täglichen unnötigen Ausgaben hier aufschreibt und sieht wieviel man am Ende des Tages gespart hat"
+                   VerticalOptions="Center" HorizontalOptions="Center"/>
+
+            <Image Source="github.png" 
+                   HeightRequest="60" 
+                   HorizontalOptions="Center" />
+
+            <Label Text="Entwickler: mahgoe"
+                   TextDecorations="Underline"
+                   TextColor="Blue"
+                   VerticalOptions="End" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenDeveloperUrlCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
