@@ -49,7 +49,7 @@ namespace SaveUp.ViewModels
         }
 
         [RelayCommand]
-        private void ClearItems()
+        private void ClearAllEntries()
         {
             Items.Clear();
         }
